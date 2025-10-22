@@ -6,8 +6,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: true, 
-    methods: 'GET,HEAD,POST,OPTIONS',
+      origin: [
+    'https://novasystem.onrender.com', 
+    'http://localhost:4200',            
+  ], 
+    methods: 'GET,HEAD,POST,PUT,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Authorization, Accept, X-Requested-With',
     credentials: true,
   });
